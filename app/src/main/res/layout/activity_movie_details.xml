@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".MovieDetailsActivity"
     android:background="@color/bg_dark">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,17 +47,25 @@
             app:layout_constraintStart_toStartOf="@id/IV_bg_image"
             app:layout_constraintTop_toTopOf="@id/IV_bg_image" />
 
+        <ImageView
+            android:id="@+id/IV_back_with_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:src="@drawable/btn_backs_arrow"
+            android:padding="0dp"
+            app:layout_constraintStart_toStartOf="@id/left_guidline"
+            app:layout_constraintTop_toTopOf="@id/IV_bg_image"
+            app:tint="@color/gray" />
         <TextView
             android:id="@+id/TV_back_with_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
-            android:drawableStart="@drawable/btn_backs_arrow"
-            android:drawableTint="@color/gray"
-            android:gravity="center"
             android:text="@string/back_with_arrow"
+            android:textSize="14sp"
             android:textColor="@color/gray"
-            app:layout_constraintStart_toStartOf="@id/left_guidline"
+            app:layout_constraintStart_toEndOf="@id/IV_back_with_arrow"
             app:layout_constraintTop_toTopOf="@id/IV_bg_image" />
 
         <TextView
@@ -147,13 +156,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="8.89dp"
+            android:layout_marginStart="12dp"
             android:gravity="center"
             android:text="@string/_125_reviews"
             android:textColor="@color/gray"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/IV_rating_star_1"
             app:layout_constraintStart_toEndOf="@id/IV_rating_star_5"
-            app:layout_constraintTop_toTopOf="@id/IV_rating_star_1" />
+            app:layout_constraintTop_toTopOf="@+id/IV_rating_star_1" />
 
         <TextView
             android:id="@+id/TV_movie_story_line"
@@ -247,7 +257,6 @@
             android:layout_marginTop="6dp"
             android:adjustViewBounds="true"
             android:gravity="start"
-            android:lineHeight="16dp"
             android:text="@string/robert_downey_jr"
             android:textColor="@color/white"
             android:textSize="12sp"
@@ -263,7 +272,6 @@
             android:layout_marginTop="6dp"
             android:adjustViewBounds="true"
             android:gravity="start"
-            android:lineHeight="16dp"
             android:text="@string/chris_evans"
             android:textColor="@color/white"
             android:textSize="12sp"
@@ -280,7 +288,6 @@
             android:layout_marginTop="6dp"
             android:adjustViewBounds="true"
             android:gravity="start"
-            android:lineHeight="16dp"
             android:text="@string/mark_ruffalo"
             android:textColor="@color/white"
             android:textSize="12sp"
@@ -296,7 +303,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:gravity="start"
-            android:lineHeight="16dp"
             android:text="@string/chris_hemsworth"
             android:textColor="@color/white"
             android:textSize="12sp"
