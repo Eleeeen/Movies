@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_dark"
-    tools:context=".MovieDetailsActivity">
+    android:background="@color/bg_dark">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -42,6 +40,19 @@
             app:layout_constraintEnd_toEndOf="@id/iv_bg_image"
             app:layout_constraintStart_toStartOf="@id/iv_bg_image"
             app:layout_constraintTop_toTopOf="@id/iv_bg_image" />
+
+        <LinearLayout
+            android:id="@+id/back_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center_vertical|start"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/right_guidline"
+            app:layout_constraintStart_toEndOf="@+id/left_guidline"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/iv_back_with_arrow"
