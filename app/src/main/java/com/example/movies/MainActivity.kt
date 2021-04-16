@@ -4,43 +4,38 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 
-class MainActivity : AppCompatActivity(),
+class MainActivity : AppCompatActivity(R.layout.activity_main),
     FragmentMoviesList.FragmentMoviesListClickListener,
     FragmentMoviesDetails.FragmentMovieDetailsClickListener
 {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         if (savedInstanceState == null) {
             routeToMoviesList()
         }
     }
 
-    override fun onMovieSelected() {
-        routeToMovieDetails()
-    }
+    override fun onMovieSelected() = routeToMovieDetails()
 
-    override fun onMovieDeselected() {
-        routeBack()
-    }
+    override fun onMovieDeselected() = onBackPressed()
 
     private fun routeToMoviesList() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, FragmentMoviesList.create(), FragmentMoviesList::class.java.simpleName)
+            .replace(R.id.container, FragmentMoviesList.create())
             .addToBackStack("trans:${FragmentMoviesList::class.java.simpleName}")
             .commit()
     }
 
     private fun routeToMovieDetails() {
         supportFragmentManager.beginTransaction()
-            .add(R.id.container, FragmentMoviesDetails.create(), FragmentMoviesDetails::class.java.simpleName)
+            .replace(R.id.container, FragmentMoviesDetails.create())
             .addToBackStack("trans:${FragmentMoviesDetails::class.java.simpleName}")
             .commit()
     }
 
-    private fun routeBack() {
+    override fun onBackPressed() {
         supportFragmentManager.popBackStack()
     }
 }
