@@ -2,40 +2,29 @@ package com.example.movies
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.github.terrakok.cicerone.Navigator
+import com.github.terrakok.cicerone.androidx.AppNavigator
 
 
-class MainActivity : AppCompatActivity(R.layout.activity_main),
-    FragmentMoviesList.FragmentMoviesListClickListener,
-    FragmentMoviesDetails.FragmentMovieDetailsClickListener
-{
+class MainActivity : AppCompatActivity(R.layout.activity_main){
+    private val navigator: Navigator = AppNavigator(this, R.id.container)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         if (savedInstanceState == null) {
-            routeToMoviesList()
+            router.replaceScreen(Screens.MovieList())
         }
     }
 
-    override fun onMovieSelected() = routeToMovieDetails()
-
-    override fun onMovieDeselected() = onBackPressed()
-
-    private fun routeToMoviesList() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, FragmentMoviesList.create())
-            .addToBackStack("trans:${FragmentMoviesList::class.java.simpleName}")
-            .commit()
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        navigatorHolder.setNavigator(navigator)
     }
 
-    private fun routeToMovieDetails() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, FragmentMoviesDetails.create())
-            .addToBackStack("trans:${FragmentMoviesDetails::class.java.simpleName}")
-            .commit()
+    override fun onPause(){
+        navigatorHolder.removeNavigator()
+        super.onPause()
     }
 
-    override fun onBackPressed() {
-        supportFragmentManager.popBackStack()
-    }
 }

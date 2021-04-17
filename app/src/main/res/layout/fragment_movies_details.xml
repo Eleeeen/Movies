@@ -299,5 +299,4 @@
             app:layout_constraintTop_toTopOf="@id/tv_cast_imagine_text_1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>

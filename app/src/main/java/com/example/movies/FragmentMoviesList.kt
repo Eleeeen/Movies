@@ -1,24 +1,27 @@
 package com.example.movies
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.movies.databinding.FragmentMoviesListBinding
 
 class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
-    private val listener: FragmentMoviesListClickListener? get() = (activity as? FragmentMoviesList.FragmentMoviesListClickListener)
+    private var _binding: FragmentMoviesListBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        view?.findViewById<View>(R.id.movies_list_fragment)?.setOnClickListener {
-            listener?.onMovieSelected()
-        }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentMoviesListBinding.inflate(inflater, container, false)
+        binding.includeMovieCard.movieFragmentCard.setOnClickListener{onPressed()}
+        return binding.root
     }
 
-    interface FragmentMoviesListClickListener {
-        fun onMovieSelected()
-    }
-
-    companion object {
-        fun create(): FragmentMoviesList = FragmentMoviesList()
+    private fun onPressed(){
+        router?.replaceScreen(Screens.MovieDetails())
     }
 }

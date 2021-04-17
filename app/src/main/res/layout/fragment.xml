@@ -2,17 +2,16 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movie_fragment_card"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/bg_dark"
     app:cardCornerRadius="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/movies_list_fragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/bg_dark"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/left_fragment_guideline"
@@ -35,9 +34,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
+            android:src="@drawable/movie_image"
             app:layout_constraintHeight_percent=".85"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/movie_image" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:layout_width="0dp"
@@ -86,8 +85,9 @@
         <ImageView
             android:id="@+id/ic_rating_star_1"
             android:layout_width="8dp"
-            android:layout_height="0dp"
+            android:layout_height="8dp"
             android:src="@drawable/star_icon"
+            app:layout_constraintBottom_toBottomOf="@id/tv_movie_list_review"
             app:layout_constraintStart_toStartOf="@id/left_fragment_guideline"
             app:layout_constraintTop_toTopOf="@+id/tv_movie_list_review"
             app:tint="@color/red"
@@ -99,6 +99,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="2dp"
             android:src="@drawable/star_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_rating_star_1"
             app:layout_constraintStart_toEndOf="@+id/ic_rating_star_1"
             app:layout_constraintTop_toTopOf="@+id/ic_rating_star_1"
             app:tint="@color/red"
@@ -110,6 +111,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="2dp"
             android:src="@drawable/star_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_rating_star_1"
             app:layout_constraintStart_toEndOf="@id/ic_rating_star_2"
             app:layout_constraintTop_toTopOf="@+id/ic_rating_star_1"
             app:tint="@color/red"
@@ -121,6 +123,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="2dp"
             android:src="@drawable/star_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_rating_star_1"
             app:layout_constraintStart_toEndOf="@id/ic_rating_star_3"
             app:layout_constraintTop_toTopOf="@+id/ic_rating_star_1"
             app:tint="@color/red"
@@ -132,6 +135,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="2dp"
             android:src="@drawable/star_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/ic_rating_star_1"
             app:layout_constraintStart_toEndOf="@id/ic_rating_star_4"
             app:layout_constraintTop_toTopOf="@+id/ic_rating_star_1"
             app:tint="@color/gray"

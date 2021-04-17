@@ -51,6 +51,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <include
+            android:id="@+id/include_movie_card"
             layout="@layout/fragment"
             android:layout_width="170dp"
             android:layout_height="296dp"
@@ -59,5 +60,4 @@
             app:layout_constraintTop_toBottomOf="@id/tv_movies_list" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>
