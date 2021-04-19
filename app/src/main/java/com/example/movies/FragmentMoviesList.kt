@@ -12,16 +12,16 @@ class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMoviesListBinding.inflate(inflater, container, false)
-        binding.includeMovieCard.movieFragmentCard.setOnClickListener{onPressed()}
+        binding.includeMovieCard.movieFragmentCard.setOnClickListener { onCardPressed() }
         return binding.root
     }
 
-    private fun onPressed(){
+    private fun onCardPressed() {
         router?.replaceScreen(Screens.MovieDetails())
     }
 }
